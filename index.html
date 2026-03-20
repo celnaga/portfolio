@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celine Vinita — Project Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --ink: #1a1814;
+    --ink-soft: #3d3830;
+    --gold: #b8922a;
+    --gold-light: #d4a843;
+    --gold-pale: #f0e4c4;
+    --sage: #5a6b5c;
+    --rust: #8b3a2a;
+    --green-dark: #2d4a35;
+    --midnight: #0f0e1a;
+    --purple-mid: #1e1b3a;
+    --green-neon: #1db954;
+    --border: rgba(26,24,20,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--ink);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.4rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250,248,244,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,146,42,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    max-width: 14ch;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.4s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    margin-top: 2.5rem;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--ink-soft);
+    max-width: 48ch;
+    line-height: 1.75;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.6s forwards;
+  }
+
+  .hero-scroll {
+    margin-top: 5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.9s forwards;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-scroll::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .project-count {
+    position: absolute;
+    right: 3rem;
+    bottom: 4rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem;
+    font-weight: 300;
+    color: rgba(26,24,20,0.04);
+    line-height: 1;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeIn 1.2s ease 1s forwards;
+  }
+
+  /* ─── SECTION SHARED ─── */
+  .section-index {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  /* ─── PROJECT SECTION ─── */
+  .project {
+    padding: 7rem 3rem;
+    border-top: 1px solid var(--border);
+    position: relative;
+  }
+
+  .project-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ─── PROJECT 1 — AXIOM (cream/gold) ─── */
+  .project-1 {
+    background: var(--cream);
+  }
+
+  .project-1 .project-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+
+  .project-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--ink);
+  }
+
+  .project-name em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .project-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    line-height: 1.45;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--ink-soft);
+  }
+
+  .tools-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tool-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  /* Axiom slides */
+  .axiom-slides {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .slide-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    position: relative;
+  }
+
+  .slide-card .slide-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .slide-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .slide-card p {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  .axiom-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    background: var(--ink);
+    padding: 3rem;
+  }
+
+  .result-stat {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .result-stat .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-stat .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .segment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 1.5rem;
+  }
+
+  .segment-card {
+    background: var(--warm-white);
+    padding: 1.5rem;
+  }
+
+  .segment-card .seg-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .segment-card .seg-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 0.75rem;
+  }
+
+  .segment-card p {
+    font-size: 0.78rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+
+  .segment-card .discount {
+    margin-top: 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .axiom-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 3rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 0.25rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .axiom-link:hover { color: var(--gold); }
+  .axiom-link::after { content: '→'; }
+
+  /* ─── PROJECT 2 — SPOTIFY (dark) ─── */
+  .project-2 {
+    background: var(--midnight);
+    color: white;
+  }
+
+  .project-2 .section-index { color: var(--green-neon); }
+  .project-2 .project-name { color: white; }
+  .project-2 .project-name em { color: var(--green-neon); font-style: normal; }
+  .project-2 .project-tagline { color: rgba(255,255,255,0.6); }
+  .project-2 .project-desc { color: rgba(255,255,255,0.55); }
+  .project-2 .tool-tag { border-color: var(--green-neon); color: var(--green-neon); }
+
+  .spotify-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    margin: 3rem 0;
+  }
+
+  .metric-box {
+    background: var(--purple-mid);
+    padding: 2rem 1.5rem;
+  }
+
+  .metric-box .m-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--green-neon);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .metric-box .m-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .metric-box .m-pval {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .findings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .finding-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 2rem;
+  }
+
+  .finding-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--green-neon);
+    margin-bottom: 0.75rem;
+  }
+
+  .finding-card p {
+    font-size: 0.83rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .friend-buckets {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .bucket {
+    flex: 1;
+    text-align: center;
+    padding: 1.2rem;
+    background: rgba(29,185,84,0.07);
+    border: 1px solid rgba(29,185,84,0.15);
+  }
+
+  .bucket .b-friends {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .bucket .b-lift {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--green-neon);
+  }
+
+  /* ─── PROJECT 3 — LONDON PROPERTY ─── */
+  .project-3 {
+    background: var(--warm-white);
+  }
+
+  .project-3 .project-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-bottom: 3.5rem;
+  }
+
+  .property-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 3rem;
+    background: var(--ink);
+    color: white;
+    margin-bottom: 2rem;
+  }
+
+  .prop-stat {
+    text-align: center;
+  }
+
+  .prop-stat .ps-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .prop-stat .ps-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .insights-list {
+    margin-top: 2rem;
+  }
+
+  .insight-item {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .insight-item:last-child { border-bottom: none; }
+
+  .insight-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-top: 0.1rem;
+  }
+
+  .insight-text {
+    font-size: 0.87rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--ink-soft);
+  }
+
+  .insight-text strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 4rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--warm-white);
+  }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  .footer-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .footer-school {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── PROJECT NAV DOTS ─── */
+  .project-nav {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .p-dot {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid;
+    text-transform: uppercase;
+  }
+
+  .p-dot-gold { border-color: var(--gold); color: var(--gold); }
+  .p-dot-green { border-color: var(--green-neon); color: var(--green-neon); }
+  .p-dot-ink { border-color: var(--ink); color: var(--ink); }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .project { padding: 4rem 1.5rem; }
+    .project-1 .project-header,
+    .project-3 .project-header { grid-template-columns: 1fr; gap: 2rem; }
+    .axiom-slides, .segment-grid { grid-template-columns: 1fr; }
+    .spotify-metrics { grid-template-columns: repeat(2, 1fr); }
+    .findings-grid { grid-template-columns: 1fr; }
+    .property-stats { grid-template-columns: 1fr; gap: 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .project-count { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Celine Vinita</span>
+  <ul class="nav-links">
+    <li><a href="#project-1">Axiom</a></li>
+    <li><a href="#project-2">Spotify A/B</a></li>
+    <li><a href="#project-3">London Property</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Project Portfolio — 2025</div>
+  <h1 class="hero-title">Data that <em>decides.</em></h1>
+  <p class="hero-sub">Three projects spanning prescriptive pricing optimization, causal inference via A/B testing, and spatial data visualization — built at the intersection of analytics, strategy, and design.</p>
+  <div class="hero-scroll">Scroll to explore</div>
+  <div class="project-count">03</div>
+</section>
+
+<!-- PROJECT 1 — AXIOM -->
+<section class="project project-1" id="project-1">
+  <div class="project-inner">
+    <div class="project-nav">
+      <span class="p-dot p-dot-gold">01 — Retail Pricing</span>
+    </div>
+    <div class="project-header">
+      <div class="reveal">
+        <div class="section-index">Project 01</div>
+        <h2 class="project-name">Axiom<em>.</em></h2>
+      </div>
+      <div class="reveal" style="transition-delay:0.15s">
+        <p class="project-tagline">"Stop subsidizing your loyal customers."</p>
+        <p class="project-desc">A prescriptive pricing intelligence engine for Chinese social commerce platforms (Xiaohongshu, Douyin) that moves beyond binary discount decisions. K-Means clustering segments customers by behavioral attributes; logistic regression estimates individual price sensitivity; a Gurobi-powered optimization model determines the profit-maximising discount for each segment — balancing conversion uplift against margin erosion at scale.</p>
+        <div class="tools-row">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">K-Means Clustering</span>
+          <span class="tool-tag">Logistic Regression</span>
+          <span class="tool-tag">Gurobi Optimization</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3-stage pipeline -->
+    <div class="axiom-slides reveal">
+      <div class="slide-card">
+        <div class="slide-num">Stage 01 — Behavioural Clustering</div>
+        <h4>Who are your customers?</h4>
+        <p>Unsupervised segmentation of 100,000 users into 4 archetypes using age, purchase frequency, total spend, social following, and platform tenure. K=4 chosen via the elbow method.</p>
+      </div>
+      <div class="slide-card">
+        <div class="slide-num">Stage 02 — Intent Forecasting</div>
+        <h4>Who will actually buy?</h4>
+        <p>Predicts purchase probability per segment at each discount tier. Key finding: is_follow_author (coef 0.83) dominates. Creator trust beats price sensitivity in social commerce.</p>
+      </div>
+      <div class="slide-card">
+        <div class="slide-num">Stage 03 — Value Optimisation</div>
+        <h4>What's the best strategy?</h4>
+        <p>Binary integer programme finds the optimal discount allocation across all segment × category pairs, subject to a ¥1,000,000 budget cap and stock constraints.</p>
+      </div>
+    </div>
+
+    <!-- Segment cards -->
+    <div class="segment-grid reveal" style="transition-delay:0.1s">
+      <div class="segment-card">
+        <div class="seg-name">The Loyalist</div>
+        <div class="seg-type">Inelastic Demand</div>
+        <p>High brand affinity, hype-driven buyers. Discounts signal clearance and can drop conversion.</p>
+        <div class="discount">Strategy: 0% — protect full margin</div>
+      </div>
+      <div class="segment-card">
+        <div class="seg-name">The Pragmatist</div>
+        <div class="seg-type">Price Elastic</div>
+        <p>Utility-focused commodity shoppers. Rational responders to small, well-timed promotions.</p>
+        <div class="discount">Strategy: 5% — defensive pricing</div>
+      </div>
+      <div class="segment-card">
+        <div class="seg-name">The Broadcaster</div>
+        <div class="seg-type">Latent Influence</div>
+        <p>Low purchase frequency but hidden social reach. Each conversion reignites algorithmic feed.</p>
+        <div class="discount">Strategy: 10% — viral investment</div>
+      </div>
+      <div class="segment-card">
+        <div class="seg-name">Power User</div>
+        <div class="seg-type">High Intent</div>
+        <p>Top spenders with maximum baseline intent. Loyalty reward without margin sacrifice.</p>
+        <div class="discount">Strategy: 5% — loyalty signal only</div>
+      </div>
+    </div>
+
+    <!-- Results bar -->
+    <div class="axiom-results reveal" style="transition-delay:0.15s">
+      <div class="result-stat">
+        <span class="num">99.7%</span>
+        <span class="label">of the value preserved</span>
+      </div>
+      <div class="result-stat">
+        <span class="num">67%</span>
+        <span class="label">reduction in marketing spend</span>
+      </div>
+      <div class="result-stat">
+        <span class="num">¥1.96M</span>
+        <span class="label">margin recovered</span>
+      </div>
+    </div>
+
+    <a href="https://axiom-decision-analytics-modelling.vercel.app" target="_blank" class="axiom-link reveal" style="transition-delay:0.2s">
+      Explore the live engine
+    </a>
+  </div>
+</section>
+
+<!-- PROJECT 2 — SPOTIFY -->
+<section class="project project-2" id="project-2">
+  <div class="project-inner">
+    <div class="project-nav">
+      <span class="p-dot p-dot-green">02 — A/B Testing</span>
+    </div>
+    <div class="project-header" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:3rem">
+      <div class="reveal">
+        <div class="section-index">Project 02</div>
+        <h2 class="project-name" style="color:white">Spotify<br><em>Friend Badge</em></h2>
+      </div>
+      <div class="reveal" style="transition-delay:0.15s">
+        <p class="project-tagline" style="color:rgba(255,255,255,0.55)">"Does social proof drive listening — and ultimately, conversion?"</p>
+        <p class="project-desc">Designed and analysed a randomised controlled experiment testing whether a "Your friends are listening to this" badge on Spotify's Home feed drives higher engagement and Premium conversion among free-tier UK users. Synthetic dataset of 117,950 users, 50/50 user-level RCT, two-sample t-tests, OLS with HC3 robust standard errors, and subgroup heterogeneity analysis.</p>
+        <div class="tools-row">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">Statistical Testing</span>
+          <span class="tool-tag">OLS Regression</span>
+          <span class="tool-tag">Causal Inference</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="spotify-metrics reveal">
+      <div class="metric-box">
+        <span class="m-label">Minutes Streamed Lift</span>
+        <span class="m-val">+50.3%</span>
+        <span class="m-pval">p &lt; 0.001 · 95% CI: +5.07 to +5.56 min</span>
+      </div>
+      <div class="metric-box">
+        <span class="m-label">Premium Conversion Lift</span>
+        <span class="m-val">+0.96pp</span>
+        <span class="m-pval">3.04% → 4.01% · p &lt; 0.001</span>
+      </div>
+      <div class="metric-box">
+        <span class="m-label">Effect Persistence</span>
+        <span class="m-val">4 wks</span>
+        <span class="m-pval">~47–50% above control through day 28</span>
+      </div>
+      <div class="metric-box">
+        <span class="m-label">App Uninstall Guardrail</span>
+        <span class="m-val">−0.19pp</span>
+        <span class="m-pval">No user experience degradation</span>
+      </div>
+    </div>
+
+    <!-- Findings -->
+    <div class="findings-grid reveal" style="transition-delay:0.1s">
+      <div class="finding-card">
+        <h4>Why the effect is causal</h4>
+        <p>Randomisation check confirmed balance across age (p=0.748) and mutual friends (p=0.55). The treatment coefficient of 5.31 min holds with and without controls — the badge is the driver, not confounding covariates.</p>
+        <p style="margin-top:1rem">74.5% of the lift is generated directly from on-card listening, with +1.35 min spillover to the broader app — suggesting a genuine expansion of total engagement, not just redistribution.</p>
+      </div>
+      <div class="finding-card">
+        <h4>Targeting insight: stronger graphs respond more</h4>
+        <p>Relative lift by friend bucket — users with 51–200 mutual friends show a statistically significant additional response above baseline (p=0.012). This points to a clear roll-out strategy: start with high-connectivity users.</p>
+        <div class="friend-buckets">
+          <div class="bucket">
+            <span class="b-friends">3–10 friends</span>
+            <span class="b-lift">+48.3%</span>
+          </div>
+          <div class="bucket">
+            <span class="b-friends">11–50 friends</span>
+            <span class="b-lift">+53.4%</span>
+          </div>
+          <div class="bucket">
+            <span class="b-friends">51–200 friends</span>
+            <span class="b-lift">+73.2%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:0.15s;margin-top:2.5rem;padding:2rem;background:rgba(29,185,84,0.06);border:1px solid rgba(29,185,84,0.15)">
+      <div class="section-index">Recommendation</div>
+      <p style="font-size:0.87rem;color:rgba(255,255,255,0.55);line-height:1.75;margin-top:0.5rem">Scale progressively to the full UK free-tier base, starting with users with 51+ mutual friends. Keep minutes streamed as the lead metric for follow-up tests. Use dismissal rate and uninstall rate as rollout guardrails.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT 3 — LONDON PROPERTY -->
+<section class="project project-3" id="project-3">
+  <div class="project-inner">
+    <div class="project-nav">
+      <span class="p-dot p-dot-ink">03 — Data Visualisation</span>
+    </div>
+    <div class="project-header">
+      <div class="reveal">
+        <div class="section-index">Project 03</div>
+        <h2 class="project-name">The Postcode<br><em style="color:var(--gold)">Premium.</em></h2>
+      </div>
+      <div class="reveal" style="transition-delay:0.15s">
+        <p class="project-tagline">London's £630M Property Divide — location specificity over borough names.</p>
+        <p class="project-desc">Challenged the conventional assumption that London's property price variation is primarily a postcode-level phenomenon. Through granular spatial visualisations built in Tableau, the analysis reveals that price dispersion within individual postcodes can rival — and in some cases exceed — variation across postcode boundaries.</p>
+        <div class="tools-row">
+          <span class="tool-tag">Tableau</span>
+          <span class="tool-tag">Spatial Analysis</span>
+          <span class="tool-tag">Data Visualisation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="property-stats reveal">
+      <div class="prop-stat">
+        <span class="ps-val">£287.5K</span>
+        <span class="ps-label">Median transaction price</span>
+      </div>
+      <div class="prop-stat">
+        <span class="ps-val">£2.6M</span>
+        <span class="ps-label">Most expensive borough avg (City of London)</span>
+      </div>
+      <div class="prop-stat">
+        <span class="ps-val">£630M</span>
+        <span class="ps-label">Max price gap within a single borough</span>
+      </div>
+    </div>
+
+    <div class="insights-list reveal" style="transition-delay:0.1s">
+      <div class="insight-item">
+        <span class="insight-num">01</span>
+        <p class="insight-text"><strong>The postcode lottery is real.</strong> The spike beginning around 2010 marks a turning point where price ranges within boroughs began to diverge dramatically — post-financial crisis recovery and luxury development created pockets of extreme value even in traditionally middle-income areas.</p>
+      </div>
+      <div class="insight-item">
+        <span class="insight-num">02</span>
+        <p class="insight-text"><strong>Croydon leads inequality, not Kensington.</strong> Croydon tops the within-borough price range at £630M — a borough containing both rural/suburban areas and town-centre regeneration zones. Westminster and Southwark follow, mixing Belgravia/Mayfair luxury with social housing estates.</p>
+      </div>
+      <div class="insight-item">
+        <span class="insight-num">03</span>
+        <p class="insight-text"><strong>Property age dominates type.</strong> Extreme upper-end variation primarily comes from existing/old properties, not new developments. The significant price range that persists within the Flat/Apartment category alone confirms that <strong>location premium</strong> is still the key driver.</p>
+      </div>
+      <div class="insight-item">
+        <span class="insight-num">04</span>
+        <p class="insight-text"><strong>Price fragmentation is hyper-local.</strong> The postal district — not the broad borough boundary — is the true unit of price fragmentation. Affordable pockets exist within expensive districts, and vice versa. Buyers and investors should act on postcode precision, not borough reputation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-name">Celine Vinita</div>
+    <div class="footer-school" style="margin-top:0.4rem">London Business School</div>
+  </div>
+  <div class="footer-note">Analytics · Strategy · Data Science</div>
+</footer>
+
+<script>
+  // Intersection observer for reveal animations
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
