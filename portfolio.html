@@ -210,10 +210,184 @@
     margin: 0 auto;
   }
 
-  /* ─── PROJECT 1 — AXIOM (cream/gold) ─── */
-  .project-1 {
-    background: var(--cream);
+  /* ─── PROJECT DESCRIPTOR SUBTITLE ─── */
+  .project-descriptor {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 0.6rem;
+    margin-bottom: 1.2rem;
+    opacity: 0.7;
   }
+
+  /* ─── PROJECT 1 — VISUAL ML (warm cream/teal accent) ─── */
+  .project-1 {
+    background: #f0ece3;
+    color: var(--ink);
+  }
+  .project-1 .section-index { color: #3a8a7a; }
+  .project-1 .project-name { color: var(--ink); }
+  .project-1 .project-name em { color: #3a8a7a; font-style: italic; }
+  .project-1 .project-tagline { color: var(--ink-soft); }
+  .project-1 .project-desc { color: var(--ink-soft); }
+  .project-1 .tool-tag { border-color: #3a8a7a; color: #3a8a7a; }
+  .project-1 .project-descriptor { color: var(--ink-soft); opacity: 0.65; }
+  .project-1 .p-dot { border-color: #3a8a7a; color: #3a8a7a; }
+
+  /* ML metric boxes */
+  .ml-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(26,24,20,0.08);
+    margin: 3rem 0;
+  }
+
+  .ml-metric-box {
+    background: var(--warm-white);
+    padding: 2rem 1.5rem;
+  }
+
+  .ml-metric-box .m-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #3a8a7a;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .ml-metric-box .m-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 0.3rem;
+    opacity: 0.7;
+  }
+
+  .ml-metric-box .m-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.56rem;
+    color: var(--ink-soft);
+    opacity: 0.5;
+  }
+
+  /* Pipeline stages */
+  .ml-pipeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(26,24,20,0.08);
+    margin-bottom: 1.5rem;
+  }
+
+  .pipeline-card {
+    background: var(--warm-white);
+    padding: 2rem;
+  }
+
+  .pipeline-card .pipe-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    color: #3a8a7a;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .pipeline-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .pipeline-card p {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  /* Category tags */
+  .category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .cat-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 0.85rem;
+    background: rgba(58,138,122,0.06);
+    border: 1px solid rgba(58,138,122,0.25);
+    color: var(--ink-soft);
+    text-transform: uppercase;
+  }
+
+  .ml-finding {
+    background: rgba(58,138,122,0.06);
+    border: 1px solid rgba(58,138,122,0.18);
+    padding: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .ml-finding h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: #3a8a7a;
+    margin-bottom: 0.75rem;
+  }
+
+  .ml-finding p {
+    font-size: 0.83rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--ink-soft);
+  }
+
+  /* Visual showcase grid */
+  .ml-visual-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .ml-visual-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(26,24,20,0.1);
+    padding: 1.5rem;
+  }
+
+  .ml-visual-card .vc-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #3a8a7a;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .ml-visual-card svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+
 
   .project-1 .project-header {
     display: grid;
@@ -409,7 +583,35 @@
   .axiom-link:hover { color: var(--gold); }
   .axiom-link::after { content: '→'; }
 
-  /* ─── PROJECT 2 — SPOTIFY (dark) ─── */
+  /* Phone mockup */
+  .phone-mockup-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem 0;
+  }
+  .phone-frame {
+    position: relative;
+    width: 240px;
+    border-radius: 36px;
+    background: #111;
+    box-shadow: 0 0 0 8px #222, 0 0 0 10px #333, 0 32px 64px rgba(0,0,0,0.6);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .phone-frame img {
+    width: 100%;
+    display: block;
+    border-radius: 28px;
+  }
+  .phone-context {
+    flex: 1;
+    padding-left: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
   .project-2 {
     background: var(--midnight);
     color: white;
@@ -713,108 +915,100 @@
   <span class="nav-name">Celine Vinita</span>
   <ul class="nav-links">
     <li><a href="index.html" class="nav-back">← About</a></li>
-    <li><a href="#project-1">Axiom</a></li>
+    <li><a href="#project-1">Visual ML</a></li>
     <li><a href="#project-2">Spotify A/B</a></li>
     <li><a href="#project-3">London Property</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-label">Project Portfolio — 2025</div>
-  <h1 class="hero-title">Data that <em>decides.</em></h1>
-  <p class="hero-sub">Three projects spanning prescriptive pricing optimization, causal inference via A/B testing, and spatial data visualization — built at the intersection of analytics, strategy, and design.</p>
-  <div class="hero-scroll">Scroll to explore</div>
+<!-- HERO — personalised intro -->
+<section class="hero" style="min-height:42vh; padding: 9rem 3rem 3.5rem;">
+  <div class="hero-label">Project Portfolio — 2026</div>
+  <h1 class="hero-title" style="font-size:clamp(2.2rem,5vw,4rem); max-width:26ch; line-height:1.2;">Welcome. Here are some of my <em>latest works</em> — from Machine Learning and A/B Testing to Tableau.</h1>
+  <p class="hero-sub" style="margin-top:1.5rem; max-width:52ch;">Built at the intersection of analytics, strategy, and design — spanning Python-based ML, causal inference, and spatial data visualisation.</p>
+  <div class="hero-scroll" style="margin-top:3rem;">Scroll to explore</div>
   <div class="project-count">03</div>
 </section>
 
-<!-- PROJECT 1 — AXIOM -->
+<!-- PROJECT 1 — VISUAL ML -->
 <section class="project project-1" id="project-1">
   <div class="project-inner">
     <div class="project-nav">
-      <span class="p-dot p-dot-gold">01 — Retail Pricing</span>
+      <span class="p-dot" style="border-color:#3a8a7a;color:#3a8a7a;">01 — Machine Learning</span>
     </div>
-    <div class="project-header">
+    <div class="project-header" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-bottom:4rem;">
       <div class="reveal">
-        <div class="section-index">Project 01</div>
-        <h2 class="project-name">Axiom<em>.</em></h2>
-        <a href="https://axiom-decision-analytics-modelling.vercel.app" target="_blank" class="axiom-link" style="margin-top:1.5rem">
-          Explore the live engine →
-        </a>
+        <div class="section-index" style="color:#3a8a7a;">Project 01</div>
+        <h2 class="project-name">Visual<br><em>Styler.</em></h2>
+        <div class="project-descriptor">Fashion Recommendation · CNN Embeddings · KNN Retrieval</div>
       </div>
       <div class="reveal" style="transition-delay:0.15s">
-        <p class="project-tagline">"Stop subsidizing your loyal customers."</p>
-        <p class="project-desc">A prescriptive pricing intelligence engine for Chinese social commerce platforms (Xiaohongshu, Douyin) that moves beyond binary discount decisions. K-Means clustering segments customers by behavioral attributes; logistic regression estimates individual price sensitivity; a Gurobi-powered optimization model determines the profit-maximising discount for each segment — balancing conversion uplift against margin erosion at scale.</p>
+        <p class="project-tagline">"Can an algorithm dress you?"</p>
+        <p class="project-desc">A visual product affinity recommendation engine built on the Polyvore outfits dataset. EfficientNet-B0 extracts 1,280-dimensional CNN embeddings from fashion item images; KNN with cosine similarity retrieves the top-5 visually compatible items per query — outperforming a colour histogram baseline across all evaluation metrics. Built for the LBS Machine Learning course.</p>
         <div class="tools-row">
           <span class="tool-tag">Python</span>
-          <span class="tool-tag">K-Means Clustering</span>
-          <span class="tool-tag">Logistic Regression</span>
-          <span class="tool-tag">Gurobi Optimization</span>
+          <span class="tool-tag">EfficientNet-B0</span>
+          <span class="tool-tag">KNN · Cosine Similarity</span>
+          <span class="tool-tag">PyTorch</span>
         </div>
       </div>
     </div>
 
-    <!-- 3-stage pipeline -->
-    <div class="axiom-slides reveal">
-      <div class="slide-card">
-        <div class="slide-num">Stage 01 — Behavioural Clustering</div>
-        <h4>Who are your customers?</h4>
-        <p>Unsupervised segmentation of 100,000 users into 4 archetypes using age, purchase frequency, total spend, social following, and platform tenure. K=4 chosen via the elbow method.</p>
+    <!-- Visual showcase: architecture diagram + recommendation grid -->
+    <div class="ml-visual-row reveal" style="grid-template-columns: 1fr 1.6fr; align-items:start;">
+      <div class="ml-visual-card">
+        <span class="vc-label">Model Architecture — EfficientNet-B0 Pipeline</span>
+        <svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" font-family="'DM Mono', monospace">
+          <rect x="10" y="70" width="72" height="60" rx="3" fill="#f0ece3" stroke="#3a8a7a" stroke-width="1.5"/>
+          <text x="46" y="96" text-anchor="middle" font-size="8" fill="#3a8a7a">224×224</text>
+          <text x="46" y="108" text-anchor="middle" font-size="8" fill="#1a1814">Image</text>
+          <text x="46" y="120" text-anchor="middle" font-size="8" fill="#1a1814">Input</text>
+          <line x1="82" y1="100" x2="100" y2="100" stroke="#3d3830" stroke-width="1.2" marker-end="url(#arr)"/>
+          <rect x="100" y="55" width="88" height="90" rx="3" fill="#e8f5f3" stroke="#3a8a7a" stroke-width="1.5"/>
+          <text x="144" y="79" text-anchor="middle" font-size="7.5" fill="#3a8a7a" font-weight="500">EfficientNet-B0</text>
+          <text x="144" y="93" text-anchor="middle" font-size="7" fill="#3d3830">MBConv Blocks</text>
+          <text x="144" y="106" text-anchor="middle" font-size="7" fill="#3d3830">× 16 layers</text>
+          <text x="144" y="119" text-anchor="middle" font-size="7" fill="#3d3830">Frozen weights</text>
+          <text x="144" y="132" text-anchor="middle" font-size="6.5" fill="#3a8a7a">(ImageNet pretrained)</text>
+          <line x1="188" y1="100" x2="206" y2="100" stroke="#3d3830" stroke-width="1.2" marker-end="url(#arr)"/>
+          <rect x="206" y="72" width="68" height="56" rx="3" fill="#f0ece3" stroke="#3d3830" stroke-width="1" stroke-dasharray="4,2"/>
+          <text x="240" y="96" text-anchor="middle" font-size="7.5" fill="#3d3830">Global Avg</text>
+          <text x="240" y="108" text-anchor="middle" font-size="7.5" fill="#3d3830">Pooling</text>
+          <text x="240" y="120" text-anchor="middle" font-size="6.5" fill="#888">head removed</text>
+          <line x1="274" y1="100" x2="292" y2="100" stroke="#3d3830" stroke-width="1.2" marker-end="url(#arr)"/>
+          <rect x="292" y="62" width="72" height="76" rx="3" fill="#e8f5f3" stroke="#3a8a7a" stroke-width="1.5"/>
+          <text x="328" y="88" text-anchor="middle" font-size="7.5" fill="#3a8a7a">1,280-dim</text>
+          <text x="328" y="101" text-anchor="middle" font-size="7.5" fill="#1a1814">Embedding</text>
+          <text x="328" y="114" text-anchor="middle" font-size="7" fill="#3d3830">shape, texture,</text>
+          <text x="328" y="126" text-anchor="middle" font-size="7" fill="#3d3830">style</text>
+          <line x1="364" y1="100" x2="382" y2="100" stroke="#3d3830" stroke-width="1.2" marker-end="url(#arr)"/>
+          <rect x="382" y="70" width="72" height="60" rx="3" fill="#f0ece3" stroke="#3a8a7a" stroke-width="1.5"/>
+          <text x="418" y="94" text-anchor="middle" font-size="7.5" fill="#3a8a7a">KNN</text>
+          <text x="418" y="107" text-anchor="middle" font-size="7" fill="#1a1814">Cosine sim.</text>
+          <text x="418" y="119" text-anchor="middle" font-size="7" fill="#1a1814">Top-5 items</text>
+          <defs>
+            <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#3d3830"/>
+            </marker>
+          </defs>
+          <text x="46" y="165" text-anchor="middle" font-size="6.5" fill="#888">Input</text>
+          <text x="144" y="165" text-anchor="middle" font-size="6.5" fill="#888">Feature Extractor</text>
+          <text x="240" y="165" text-anchor="middle" font-size="6.5" fill="#888">Pooling</text>
+          <text x="328" y="165" text-anchor="middle" font-size="6.5" fill="#888">Vector Space</text>
+          <text x="418" y="165" text-anchor="middle" font-size="6.5" fill="#888">Retrieval</text>
+        </svg>
       </div>
-      <div class="slide-card">
-        <div class="slide-num">Stage 02 — Intent Forecasting</div>
-        <h4>Who will actually buy?</h4>
-        <p>Predicts purchase probability per segment at each discount tier. Key finding: is_follow_author (coef 0.83) dominates. Creator trust beats price sensitivity in social commerce.</p>
-      </div>
-      <div class="slide-card">
-        <div class="slide-num">Stage 03 — Value Optimisation</div>
-        <h4>What's the best strategy?</h4>
-        <p>Binary integer programme finds the optimal discount allocation across all segment × category pairs, subject to a ¥1,000,000 budget cap and stock constraints.</p>
+      <div class="ml-visual-card">
+        <span class="vc-label">Top-5 Recommendations per Query Item — CNN Results</span>
+        <img src="figure3_recommendation_grid.png" alt="CNN Top-5 Recommendations per Query Item — tops, bottoms, shoes, bags" style="width:100%;display:block;border-radius:2px;"/>
+        <p style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;color:#888;margin-top:0.75rem;">Green border (+) = same category as query &nbsp;·&nbsp; Grey = different category</p>
       </div>
     </div>
 
-    <!-- Segment cards -->
-    <div class="segment-grid reveal" style="transition-delay:0.1s">
-      <div class="segment-card">
-        <div class="seg-name">The Loyalist</div>
-        <div class="seg-type">Inelastic Demand</div>
-        <p>High brand affinity, hype-driven buyers. Discounts signal clearance and can drop conversion.</p>
-        <div class="discount">Strategy: 0% — protect full margin</div>
-      </div>
-      <div class="segment-card">
-        <div class="seg-name">The Pragmatist</div>
-        <div class="seg-type">Price Elastic</div>
-        <p>Utility-focused commodity shoppers. Rational responders to small, well-timed promotions.</p>
-        <div class="discount">Strategy: 5% — defensive pricing</div>
-      </div>
-      <div class="segment-card">
-        <div class="seg-name">The Broadcaster</div>
-        <div class="seg-type">Latent Influence</div>
-        <p>Low purchase frequency but hidden social reach. Each conversion reignites algorithmic feed.</p>
-        <div class="discount">Strategy: 10% — viral investment</div>
-      </div>
-      <div class="segment-card">
-        <div class="seg-name">Power User</div>
-        <div class="seg-type">High Intent</div>
-        <p>Top spenders with maximum baseline intent. Loyalty reward without margin sacrifice.</p>
-        <div class="discount">Strategy: 5% — loyalty signal only</div>
-      </div>
-    </div>
-
-    <!-- Results bar -->
-    <div class="axiom-results reveal" style="transition-delay:0.15s">
-      <div class="result-stat">
-        <span class="num">99.7%</span>
-        <span class="label">of the value preserved</span>
-      </div>
-      <div class="result-stat">
-        <span class="num">67%</span>
-        <span class="label">reduction in marketing spend</span>
-      </div>
-      <div class="result-stat">
-        <span class="num">¥1.96M</span>
-        <span class="label">margin recovered</span>
-      </div>
+    <!-- Key finding -->
+    <div class="ml-finding reveal" style="transition-delay:0.15s">
+      <h4>Key finding: semantic features beat colour</h4>
+      <p>The CNN model consistently outperforms the colour histogram baseline — confirming that high-level visual features learned from ImageNet (shape, texture, style) are more discriminative for outfit compatibility than raw colour distributions. Precision is flat across ranks 5–10, meaning the model retrieves its best matches in the first five results.</p>
     </div>
   </div>
 </section>
@@ -831,13 +1025,30 @@
         <h2 class="project-name" style="color:white">Spotify<br><em>Friend Badge</em></h2>
       </div>
       <div class="reveal" style="transition-delay:0.15s">
-        <p class="project-tagline" style="color:rgba(255,255,255,0.55)">"Does social proof drive listening — and ultimately, conversion?"</p>
-        <p class="project-desc">Designed and analysed a randomised controlled experiment testing whether a "Your friends are listening to this" badge on Spotify's Home feed drives higher engagement and Premium conversion among free-tier UK users. Synthetic dataset of 117,950 users, 50/50 user-level RCT, two-sample t-tests, OLS with HC3 robust standard errors, and subgroup heterogeneity analysis.</p>
+        <p class="project-tagline" style="color:rgba(255,255,255,0.55)">"Does social proof turn listeners into subscribers?"</p>
+        <p class="project-desc">Designed and analysed a randomised controlled experiment testing whether a "Your friends are listening to this" badge on Spotify's Home feed drives higher engagement and Premium conversion among free-tier UK users. 117,950 users, 50/50 RCT, two-sample t-tests, OLS with HC3 robust standard errors, and subgroup heterogeneity analysis — including a Simpson's Paradox check across friend-count segments.</p>
         <div class="tools-row">
           <span class="tool-tag">Python</span>
           <span class="tool-tag">Statistical Testing</span>
           <span class="tool-tag">OLS Regression</span>
           <span class="tool-tag">Causal Inference</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phone mock + context -->
+    <div class="reveal" style="display:flex;align-items:center;gap:3rem;margin:2rem 0 1rem;">
+      <div class="phone-frame">
+        <img src="spotify_friend_badge_mock.png" alt="Spotify Friend Badge UI — Your friends are listening to this"/>
+      </div>
+      <div class="phone-context">
+        <div class="section-index" style="color:var(--green-neon);margin-bottom:0.75rem;">The Feature Being Tested</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:white;line-height:1.4;margin-bottom:1rem;">"Your friends are listening to this"</p>
+        <p style="font-size:0.83rem;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.5);">A social proof badge surfaced on Spotify's Home feed — showing a user's friends listening to a playlist in real time. The experiment tested whether this nudge drives more listening time and, ultimately, Premium conversion among free-tier UK users.</p>
+        <div style="margin-top:1.25rem;display:flex;gap:1rem;flex-wrap:wrap;">
+          <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.8rem;border:1px solid rgba(29,185,84,0.3);color:rgba(29,185,84,0.7);text-transform:uppercase;">117,950 users</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.8rem;border:1px solid rgba(29,185,84,0.3);color:rgba(29,185,84,0.7);text-transform:uppercase;">50/50 RCT</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:0.35rem 0.8rem;border:1px solid rgba(29,185,84,0.3);color:rgba(29,185,84,0.7);text-transform:uppercase;">UK Free-tier</span>
         </div>
       </div>
     </div>
@@ -964,7 +1175,7 @@
     <div class="footer-name">Celine Vinita</div>
     <div class="footer-school" style="margin-top:0.4rem">London Business School</div>
   </div>
-  <div class="footer-note">Analytics · Strategy · Data Science</div>
+  <div class="footer-note">Analytics · Strategy · Machine Learning</div>
 </footer>
 
 <script>
